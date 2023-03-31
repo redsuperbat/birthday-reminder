@@ -114,7 +114,7 @@ func main() {
 
 		var birthdayPeeps []Birthday
 		for _, v := range birthdays.Birthdays {
-			if v.Date != today {
+			if v.Date[4:] != today[4:] {
 				continue
 			}
 			birthdayPeeps = append(birthdayPeeps, v)
@@ -130,9 +130,11 @@ func main() {
 			log.Println("notifying max...")
 			text := fmt.Sprintf("Hey, its %s's birthday today!\nDont forget to message them and say Happy Birthday!", v.Name)
 			msg := tgbotapi.NewMessage(chatId, text)
+			log.Println("sending message...")
 			if _, err := bot.Send(msg); err != nil {
 				log.Printf("Unable to send message because of %v", err.Error())
 			}
+			log.Println("message sent!")
 		}
 	})
 
