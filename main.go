@@ -128,7 +128,7 @@ func main() {
 		for _, v := range birthdayPeeps {
 			log.Printf("it's %s birthday today", v.Name)
 			log.Println("notifying max...")
-			text := fmt.Sprintf("Hey, its %s's birthday today!\nDont forget to message them and say Happy Birthday!", v.Name)
+			text := fmt.Sprintf("Hey, its %s's birthday today!\nDon't forget to message them and say Happy Birthday!", v.Name)
 			msg := tgbotapi.NewMessage(chatId, text)
 			log.Println("sending message...")
 			if _, err := bot.Send(msg); err != nil {
